@@ -15,14 +15,14 @@ const Navbar = async () => {
     return (
         <div>
             <div className='flex items-center justify-between py-5 bg-white'>
-                <div className='flex gap-3'>
+                <Link href='/' className='flex gap-3 cursor-pointer'>
                     <Image src={logo} alt='logo' width={25} height={25}
                     />
                     <div>
                         <h2 className='text-2xl font-bold'>বাজার দর</h2>
                         <span className='text-sm'>{date}</span>
                     </div>
-                </div>
+                </Link>
                 <div className='flex gap-3 items-center'>
                     <Link href='/signin'>সাইন ইন</Link>
                     <Link href='/signup' className='bg-green-700 text-white py-1 px-3 rounded-sm font-bold'>সাইন আপ</Link>
@@ -30,12 +30,16 @@ const Navbar = async () => {
             </div>
 
             <div className='flex gap-5 justify-center'>
-                {
-                    data.map((nav, i) => <Link key={i} href='/'>
+                {data.map((nav) => (
+                    <Link
+                        key={nav.id}
+                        href={`/category/${nav.slug}`}
+                        className="flex items-center gap-1"
+                    >
                         <span>{nav.icon}</span>
                         <span>{nav.nameBn}</span>
-                    </Link>)
-                }
+                    </Link>
+                ))}
             </div>
 
         </div>

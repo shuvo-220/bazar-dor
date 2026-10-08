@@ -1,13 +1,12 @@
 import React from 'react'
 import Marquee from './components/Marquee'
 import Banner from './components/Banner'
-import Product from './components/Product'
+import Product from './product/page'
 
 
 const page = () => {
   return (
    <>
-     <Marquee />
     <Banner />
     <Product />
    </>
